@@ -5,15 +5,17 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
+        - /TF1
         - /TF1/Frames1
         - /TF1/Tree1
+        - /Gravity1
         - /Loop closure1/Topic1
         - /Localizer1/Localizer Map1
         - /Odometry1/Shape1
         - /Odometry2
         - /Odometry2/Shape1
       Splitter Ratio: 0.6470588445663452
-    Tree Height: 443
+    Tree Height: 140
   - Class: rviz_common/Selection
     Name: Selection
   - Class: rviz_common/Tool Properties
@@ -54,34 +56,36 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: false
+        base_link:
+          Value: true
         camera_accel_frame:
-          Value: true
+          Value: false
         camera_accel_optical_frame:
-          Value: true
+          Value: false
         camera_aligned_depth_to_infra1_frame:
-          Value: true
+          Value: false
         camera_color_frame:
-          Value: true
+          Value: false
         camera_color_optical_frame:
-          Value: true
+          Value: false
         camera_depth_frame:
-          Value: true
+          Value: false
         camera_depth_optical_frame:
-          Value: true
+          Value: false
         camera_gyro_frame:
-          Value: true
+          Value: false
         camera_gyro_optical_frame:
-          Value: true
+          Value: false
         camera_infra1_frame:
-          Value: true
+          Value: false
         camera_infra1_optical_frame:
-          Value: true
+          Value: false
         camera_infra2_frame:
-          Value: true
+          Value: false
         camera_infra2_optical_frame:
-          Value: true
+          Value: false
         camera_link:
-          Value: true
+          Value: false
         map:
           Value: true
         odom:
@@ -94,27 +98,28 @@ Visualization Manager:
       Tree:
         map:
           odom:
-            camera_link:
-              camera_accel_frame:
-                camera_accel_optical_frame:
+            base_link:
+              camera_link:
+                camera_accel_frame:
+                  camera_accel_optical_frame:
+                    {}
+                camera_aligned_depth_to_infra1_frame:
+                  camera_infra1_optical_frame:
+                    {}
+                camera_color_frame:
+                  camera_color_optical_frame:
+                    {}
+                camera_depth_frame:
+                  camera_depth_optical_frame:
+                    {}
+                camera_gyro_frame:
+                  camera_gyro_optical_frame:
+                    {}
+                camera_infra1_frame:
                   {}
-              camera_aligned_depth_to_infra1_frame:
-                camera_infra1_optical_frame:
-                  {}
-              camera_color_frame:
-                camera_color_optical_frame:
-                  {}
-              camera_depth_frame:
-                camera_depth_optical_frame:
-                  {}
-              camera_gyro_frame:
-                camera_gyro_optical_frame:
-                  {}
-              camera_infra1_frame:
-                {}
-              camera_infra2_frame:
-                camera_infra2_optical_frame:
-                  {}
+                camera_infra2_frame:
+                  camera_infra2_optical_frame:
+                    {}
       Update Interval: 0
       Value: true
     - Class: rviz_default_plugins/Marker
@@ -337,7 +342,7 @@ Visualization Manager:
             Reliability Policy: Reliable
             Value: /visual_slam/vis/pose_graph_edges
           Value: true
-      Enabled: true
+      Enabled: false
       Name: Pose Graph
     - Class: rviz_common/Group
       Displays:
@@ -429,18 +434,17 @@ Visualization Manager:
         Value: /visual_slam/tracking/odometry
       Value: false
     - Class: rviz_default_plugins/MarkerArray
-      Enabled: true
+      Enabled: false
       Name: Velocity
       Namespaces:
-        angular velocity: true
-        linear velocity: true
+        {}
       Topic:
         Depth: 5
         Durability Policy: Volatile
         History Policy: Keep Last
         Reliability Policy: Reliable
         Value: /visual_slam/vis/velocity
-      Value: true
+      Value: false
     - Class: rviz_default_plugins/Image
       Enabled: true
       Max Value: 1
@@ -486,7 +490,7 @@ Visualization Manager:
           Scale: 1
           Value: true
         Value: true
-      Enabled: true
+      Enabled: false
       Keep: 0
       Name: Odometry
       Position Tolerance: 0.10000000149011612
@@ -507,7 +511,7 @@ Visualization Manager:
         History Policy: Keep Last
         Reliability Policy: Reliable
         Value: /visual_slam/vis/slam_odometry
-      Value: true
+      Value: false
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -554,25 +558,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 4.261692047119141
+      Distance: 2.8496742248535156
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 1.146517276763916
-        Y: -0.05183470621705055
-        Z: -0.06184083968400955
+        X: 0.6233042478561401
+        Y: -0.0855533555150032
+        Z: -0.15276463329792023
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.3653976321220398
+      Pitch: 0.18539848923683167
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 3.1104042530059814
+      Yaw: 2.999039649963379
     Saved: ~
 Window Geometry:
   Displays:
@@ -582,7 +586,7 @@ Window Geometry:
   Hide Right Dock: false
   Image:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000400000000000001560000028afc020000000bfb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073000000003b0000010e000000c700fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000a0049006d006100670065010000003b0000013f0000002800fffffffb0000000a0049006d0061006700650100000180000001450000002800fffffffb0000000a0049006d00610067006501000001fc00000259000000000000000000000001000001b40000041afc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073000000003b0000041a000000a000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000738000000a9fc0100000003fb0000000a0049006d0061006700650100000000000003b40000000000000000fb0000000a0049006d00610067006501000003ba0000037e0000000000000000fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004420000003efc0100000002fb0000000800540069006d00650100000000000004420000000000000000fb0000000800540069006d006501000000000000045000000000000000000000035c0000028a00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000400000000000001db0000028afc020000000bfb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003b000000c7000000c700fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000a0049006d0061006700650100000108000000d90000002800fffffffb0000000a0049006d00610067006501000001e7000000de0000002800fffffffb0000000a0049006d00610067006501000001fc00000259000000000000000000000001000001b40000041afc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073000000003b0000041a000000a000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000738000000a9fc0100000003fb0000000a0049006d0061006700650100000000000003b40000000000000000fb0000000a0049006d00610067006501000003ba0000037e0000000000000000fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004420000003efc0100000002fb0000000800540069006d00650100000000000004420000000000000000fb0000000800540069006d00650100000000000004500000000000000000000002d70000028a00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Tool Properties:

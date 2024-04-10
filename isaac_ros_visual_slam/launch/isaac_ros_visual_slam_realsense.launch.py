@@ -30,17 +30,23 @@ def generate_launch_description():
         parameters=[{
                 'enable_infra1': True,
                 'enable_infra2': True,
-                'enable_color': False,
-                'enable_depth': False,
-                'depth_module.emitter_enabled': 0,
+                'enable_color': True,
+                'enable_depth': True,
+                'depth_module.emitter_enabled': 1,
                 'depth_module.profile': '640x360x90',
                 'enable_gyro': True,
                 'enable_accel': True,
                 'gyro_fps': 200,
                 'accel_fps': 200,
                 'unite_imu_method': 2,
-                'enable_sync': True
+                'enable_sync': True,
         }]
+    )
+
+    tf_to_drone_node = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        arguments = ['--x', '0,05', '--y', '0', '--z', '-0,01', '--qx' ,'0', '--qy', '0.3746066', '--qz', '0', '--qw', '0.9271839', '--frame-id', 'base_link', '--child-frame-id', 'camera_link']
     )
 
     visual_slam_node = ComposableNode(
@@ -57,7 +63,9 @@ def generate_launch_description():
                     'enable_observations_view': True,
                     'map_frame': 'map',
                     'odom_frame': 'odom',
-                    'base_frame': 'camera_link',
+                    'input_base_frame': 'base_link',
+                    'base_frame': 'base_link',
+                    'input_left_camera_frame': 'camera_infra1_frame',
                     'input_imu_frame': 'camera_gyro_optical_frame',
                     'enable_imu_fusion': True,
                     'gyro_noise_density': 0.000244,
@@ -85,4 +93,4 @@ def generate_launch_description():
         output='screen'
     )
 
-    return launch.LaunchDescription([visual_slam_launch_container, realsense_camera_node])
+    return launch.LaunchDescription([tf_to_drone_node, visual_slam_launch_container, realsense_camera_node])
